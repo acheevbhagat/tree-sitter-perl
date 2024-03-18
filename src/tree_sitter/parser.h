@@ -126,6 +126,20 @@ struct TSLanguage {
   const TSStateId *primary_state_ids;
 };
 
+void *tree_sitter_perl_external_scanner_create();
+unsigned tree_sitter_perl_external_scanner_serialize(
+    void *payload,
+    char *buffer);
+void tree_sitter_perl_external_scanner_deserialize(
+    void *payload,
+    const char *buffer,
+    unsigned length);
+bool tree_sitter_perl_external_scanner_scan(
+    void *payload,
+    TSLexer *lexer,
+    const bool *valid_symbols);
+void tree_sitter_perl_external_scanner_destroy(void *payload);
+
 /*
  *  Lexer Macros
  */
