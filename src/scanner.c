@@ -133,7 +133,7 @@ typedef struct {
 } Queue;
 
 // Function to create a new queue node
-static * create_node(Data data, DataType type) {
+static Node* create_node(Data data, DataType type) {
     Node* node = (Node*) malloc(sizeof(Node));
     node->data = data;
     node->type = type;
