@@ -15,6 +15,7 @@
     "generate": "tree-sitter generate",
     "test": "tree-sitter test",
     "example": "tree-sitter parse examples/* --quiet --stat",
+    "update-bindings": "tree-sitter init --update",
     "prebuildify": "prebuildify --napi --strip"
   },
   "keywords": [
