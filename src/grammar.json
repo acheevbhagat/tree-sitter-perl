@@ -9387,5 +9387,6 @@
   "inline": [
     "semi_colon"
   ],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }

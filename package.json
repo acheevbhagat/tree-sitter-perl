@@ -51,7 +51,7 @@
     "node-gyp": "^10.0.1",
     "prebuild": "^12.1.0",
     "prebuildify": "^6.0.0",
-    "tree-sitter-cli": "^0.24.3"
+    "tree-sitter-cli": "^0.25.10"
   },
   "overrides": {
     "prebuild": {
