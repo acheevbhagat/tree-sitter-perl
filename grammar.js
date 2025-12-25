@@ -66,6 +66,7 @@ module.exports = grammar({
     [$.array_access_variable, $.array_ref],
     [$._variables, $.array_dereference],
     [$.hash_ref, $.array_dereference],
+    [$._expression, $.call_expression_with_spaced_args],
   ],
 
   externals: $ => [
@@ -361,6 +362,7 @@ module.exports = grammar({
     require_statement: $ => seq(
       'require',
       field('package_name', $.package_name),
+      optional($._if_simple),
       $.semi_colon,
     ),
 
@@ -1174,7 +1176,7 @@ module.exports = grammar({
 
     call_expression_with_args_with_brackets: $ => prec.left(PRECEDENCE.TERM, seq(
       $.call_expression_with_bareword,
-      optional(field('args', $.array)),
+      field('args', $.array),
     )),
 
     // call_expression_with_args_without_brackets: $ => prec.left(PRECEDENCE.LOWEST, seq(
