@@ -2929,6 +2929,7 @@
   {
     "type": "comments",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
