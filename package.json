@@ -1,6 +1,6 @@
 {
   "name": "@ganezdragon/tree-sitter-perl",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "a tree-sitter for perl language.",
   "main": "bindings/node",
   "types": "bindings/node",
@@ -16,6 +16,7 @@
     "test": "tree-sitter test",
     "example": "tree-sitter parse examples/* --quiet --stat",
     "update-bindings": "tree-sitter init --update",
+    "version-bump-patch": "tree-sitter version --bump patch",
     "prebuildify": "prebuildify --napi --strip"
   },
   "keywords": [
@@ -31,6 +32,7 @@
     "queries/*",
     "src/**"
   ],
+  "type": "module",
   "repository": "git://github.com/ganezdragon/tree-sitter-perl.git",
   "author": "ganezdragon",
   "license": "MIT",
@@ -52,7 +54,7 @@
     "node-gyp": "^10.0.1",
     "prebuild": "^12.1.0",
     "prebuildify": "^6.0.0",
-    "tree-sitter-cli": "^0.25.10"
+    "tree-sitter-cli": "^0.26.3"
   },
   "overrides": {
     "prebuild": {

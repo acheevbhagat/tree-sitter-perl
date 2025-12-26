@@ -6,12 +6,12 @@
       "scope": "source.perl",
       "path": ".",
       "file-types": [
-        "pl"
+        "pl", "pm"
       ]
     }
   ],
   "metadata": {
-    "version": "1.1.1",
+    "version": "1.1.2",
     "license": "MIT",
     "description": "a tree-sitter for perl language.",
     "authors": [
@@ -25,10 +25,10 @@
   },
   "bindings": {
     "c": true,
-    "go": true,
+    "go": false,
     "node": true,
-    "python": true,
+    "python": false,
     "rust": true,
-    "swift": true
+    "swift": false
   }
 }
