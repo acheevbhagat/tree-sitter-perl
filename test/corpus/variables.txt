@@ -7,7 +7,11 @@ local $SIG{__WARN__} = sub {};
 ---
 
 (source_file
-    (binary_expression
-    (hash_access_variable (variable_declaration
-            (scope)
-            (scalar_variable)) (bareword)) (anonymous_function (block))) )
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (hash_access_variable_simple
+            (scalar_variable)
+            (identifier)))
+        (anonymous_function
+          (block))))

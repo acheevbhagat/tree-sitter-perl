@@ -9,11 +9,26 @@ my $output = BaseModule::YeaThis->hello('first', {
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (scalar_variable))
-  (method_invocation (package_name (identifier) (identifier)) (arrow_operator) (identifier)
-    (parenthesized_argument (arguments (argument (string_single_quoted)) (argument (hash_ref (key_value_pair (bareword) (hash_arrow_operator) (string_single_quoted)))))))
-  ) 
-)
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (scalar_variable))
+        (method_invocation
+          (package_name
+            (identifier)
+            (identifier))
+          (arrow_operator)
+          (identifier)
+          (parenthesized_argument
+            (arguments
+              (string_single_quoted)
+              (normal_comma)
+              (hash_ref
+                (call_expression_with_bareword
+                  (identifier))
+                (fat_comma)
+                (string_single_quoted)))))))
+
 
 =================================================
 method invocation 2

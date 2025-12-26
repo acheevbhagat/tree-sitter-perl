@@ -9,9 +9,9 @@ if (1) {
 ---
 
 (source_file
-  (if_statement (parenthesized_expression (integer))
+  (if_statement (array (integer))
     (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
+      (call_expression_with_spaced_args (call_expression_with_bareword (identifier)) (arguments (string_double_quoted))) 
     )
   )
 )
@@ -30,17 +30,24 @@ elsif (2) {
 ---
 
 (source_file
-  (if_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-    (elsif_clause (parenthesized_expression (integer))
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-  )
-)
+      (if_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))
+        (elsif_clause
+          (array
+            (integer))
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))))
 
 =================================================
 if else block with boolean
@@ -56,17 +63,22 @@ else {
 ---
 
 (source_file
-  (if_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-    (else_clause
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-  )
-)
+      (if_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))
+        (else_clause
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))))
 
 =================================================
 if elsif else block with boolean
@@ -85,22 +97,31 @@ else {
 ---
 
 (source_file
-  (if_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-    (elsif_clause (parenthesized_expression (integer))
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-    (else_clause
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-  )
-)
+      (if_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))
+        (elsif_clause
+          (array
+            (integer))
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))
+        (else_clause
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))))
 
 =================================================
 unless block with boolean
@@ -113,12 +134,15 @@ unless (1) {
 ---
 
 (source_file
-  (unless_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-  )
-)
+      (unless_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))))
 
 =================================================
 unless elsif block with boolean
@@ -134,17 +158,24 @@ elsif (2) {
 ---
 
 (source_file
-  (unless_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-    (elsif_clause (parenthesized_expression (integer))
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-  )
-)
+      (unless_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))
+        (elsif_clause
+          (array
+            (integer))
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))))
 
 =================================================
 unless else block with boolean
@@ -154,23 +185,28 @@ unless (1) {
   print "hello";
 }
 else {
-  print "else";
+  print("else");
 }
 
 ---
 
 (source_file
-  (unless_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-    (else_clause
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-  )
-)
+      (unless_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))
+        (else_clause
+          (block
+            (call_expression_with_args_with_brackets
+              (call_expression_with_bareword
+                (identifier))
+              (array
+                (string_double_quoted)))))))
 
 =================================================
 unless elsif else block with boolean
@@ -189,24 +225,31 @@ else {
 ---
 
 (source_file
-  (unless_statement (parenthesized_expression (integer))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-    (elsif_clause (parenthesized_expression (integer))
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-    (else_clause
-      (block
-        (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-      )
-    )
-  )
-)
-
-
+      (unless_statement
+        (array
+          (integer))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))
+        (elsif_clause
+          (array
+            (integer))
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))
+        (else_clause
+          (block
+            (call_expression_with_spaced_args
+              (call_expression_with_bareword
+                (identifier))
+              (arguments
+                (string_double_quoted)))))))
 
 =================================================
 Simple while statement
@@ -222,14 +265,26 @@ while ($i < 10) {
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (scalar_variable)) (integer)) 
-  (while_statement (parenthesized_expression (binary_expression (scalar_variable) (integer)))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted (interpolation (scalar_variable)))))) 
-      (unary_expression (scalar_variable)) 
-    )
-  )
-)
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (scalar_variable))
+        (integer))
+      (while_statement
+        (array
+          (binary_expression
+            (scalar_variable)
+            (integer)))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted
+                (interpolation
+                  (scalar_variable)))))
+          (unary_expression
+            (scalar_variable)))))
 
 =================================================
 while statement with label
@@ -247,12 +302,31 @@ MEOW: while ($i < 10) {
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (scalar_variable)) (integer)) 
-  (while_statement (identifier) (parenthesized_expression (binary_expression (scalar_variable) (integer)))
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted (interpolation (scalar_variable))))))  (loop_control_statement (loop_control_keyword) (identifier) ) (unary_expression (scalar_variable)) )
-  )
-)
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (scalar_variable))
+        (integer))
+      (label
+        (identifier))
+      (while_statement
+        (array
+          (binary_expression
+            (scalar_variable)
+            (integer)))
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted
+                (interpolation
+                  (scalar_variable)))))
+          (loop_control_statement
+            (loop_control_keyword)
+            (identifier))
+          (unary_expression
+            (scalar_variable)))))
 
 =================================================
 postfix for loop
@@ -264,9 +338,25 @@ print "in a loop" for @array;
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (array_variable)) (array (integer) (integer) (integer))) 
-  (single_line_statement (call_expression (identifier) (arguments (argument (string_double_quoted)))) (for_simple_statement (array_variable) ))
-)
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (array_variable))
+        (array
+          (integer)
+          (normal_comma)
+          (integer)
+          (normal_comma)
+          (integer)))
+      (single_line_statement
+        (call_expression_with_spaced_args
+          (call_expression_with_bareword
+            (identifier))
+          (arguments
+            (string_double_quoted)))
+        (for_simple_statement
+          (arguments
+            (array_variable)))))
 
 =================================================
 simple for loop (C-style)
@@ -278,10 +368,18 @@ for (my $i=1; $i < 10; $i++) {
 ---
 
 (source_file
-  (for_statement_1 (binary_expression (variable_declaration (scope) (scalar_variable)) (integer))  (binary_expression (scalar_variable) (integer))  (unary_expression (scalar_variable))
-    (block)
-  )
-)
+      (for_statement_1
+        (binary_expression
+          (variable_declaration
+            (scope)
+            (scalar_variable))
+          (integer))
+        (binary_expression
+          (scalar_variable)
+          (integer))
+        (unary_expression
+          (scalar_variable))
+        (block)))
 
 =================================================
 infinite for loop (C-style)
@@ -294,12 +392,13 @@ for (;;) {
 ---
 
 (source_file
-  (for_statement_1  
-    (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
-    )
-  )
-)
+      (for_statement_1
+        (block
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (string_double_quoted))))))
 
 =================================================
 for loop (iterate over array)
@@ -344,7 +443,7 @@ foreach (;;) {
 (source_file
   (for_statement_1  
     (block
-      (call_expression (identifier) (arguments (argument (string_double_quoted)))) 
+      (call_expression_with_spaced_args (call_expression_with_bareword (identifier)) (arguments (string_double_quoted))) 
     )
   )
 )
