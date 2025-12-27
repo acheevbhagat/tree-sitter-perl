@@ -25,10 +25,10 @@ type NodeInfo =
  *
  * @example
  * import Parser from "tree-sitter";
- * import GanezdragonPerl from "tree-sitter-ganezdragon-perl";
+ * import Perl from "tree-sitter-perl";
  *
  * const parser = new Parser();
- * parser.setLanguage(GanezdragonPerl);
+ * parser.setLanguage(Perl);
  */
 declare const binding: {
   /**
