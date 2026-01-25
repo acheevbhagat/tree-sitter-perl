@@ -22,9 +22,10 @@ hello();
 ---
 
 (source_file
-  (call_expression
-    function_name: (identifier) args: (parenthesized_argument)) 
-)
+      (call_expression_with_args_with_brackets
+        (call_expression_with_bareword
+          (identifier))
+        (array)))
 
 =================================================
 Subroutine with arrow notation
@@ -35,21 +36,24 @@ my $result = GetSalesforceTemplateInfo($dbh)->{$args->{ALOHA}}->{'NAMASTE'};
 ---
 
 (source_file
-      (binary_expression (variable_declaration
-        (scope)
-        (scalar_variable))
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (scalar_variable))
         (hash_access_variable
           (hash_access_variable
-            (call_expression
-              (identifier)
-              (arguments
-                (argument
-                  (scalar_variable))))
+            (call_expression_with_args_with_brackets
+              (call_expression_with_bareword
+                (identifier))
+              (array
+                (scalar_variable)))
+            (arrow_operator)
             (hash_access_variable
               (scalar_variable)
-              (bareword)))
-          (string_single_quoted)))
-      )
+              (arrow_operator)
+              (identifier)))
+          (arrow_operator)
+          (string_single_quoted))))
 
 =================================================
 Subroutine calling another subroutine without params
@@ -60,9 +64,16 @@ print Dumper %{$args};
 ---
 
 (source_file
-  (call_expression (identifier) (arguments (argument
-    (call_expression (identifier) (arguments (argument (hash_dereference (scalar_variable)))))))) 
-)
+      (call_expression_with_spaced_args
+        (call_expression_with_bareword
+          (identifier))
+        (arguments
+          (call_expression_with_spaced_args
+            (call_expression_with_bareword
+              (identifier))
+            (arguments
+              (hash_dereference
+                (scalar_variable)))))))
 
 =================================================
 Subroutine with CODE signature TODO: (&) doesn't work

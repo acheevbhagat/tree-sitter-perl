@@ -1,22 +1,25 @@
 {
   "grammars": [
     {
-      "name": "@ganezdragon/perl",
-      "camelcase": "GanezdragonPerl",
+      "name": "perl",
+      "camelcase": "Perl",
       "scope": "source.perl",
       "path": ".",
       "file-types": [
-        "pl"
-      ]
+        "pl", "pm", "t"
+      ],
+      "first-line-regex": "#!.*\\bperl$"
     }
   ],
   "metadata": {
-    "version": "1.1.1",
+    "version": "1.1.2",
     "license": "MIT",
     "description": "a tree-sitter for perl language.",
+    "namespace": "io.ganezdragon.tree-sitter-perl",
     "authors": [
       {
-        "name": "ganezdragon"
+        "name": "ganezdragon",
+        "email": "ganesh.raja.93@gmail.com"
       }
     ],
     "links": {
@@ -25,10 +28,10 @@
   },
   "bindings": {
     "c": true,
-    "go": true,
+    "go": false,
     "node": true,
-    "python": true,
+    "python": false,
     "rust": true,
-    "swift": true
+    "swift": false
   }
 }

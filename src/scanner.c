@@ -133,7 +133,7 @@ typedef struct {
 } Queue;
 
 // Function to create a new queue node
-Node* create_node(Data data, DataType type) {
+static Node* create_node(Data data, DataType type) {
     Node* node = (Node*) malloc(sizeof(Node));
     node->data = data;
     node->type = type;
@@ -142,7 +142,7 @@ Node* create_node(Data data, DataType type) {
 }
 
 // Function to create a new queue
-Queue* create_queue() {
+static Queue* create_queue() {
     Queue* queue = (Queue*) malloc(sizeof(Queue));
     queue->front = NULL;
     queue->rear = NULL;
@@ -150,12 +150,12 @@ Queue* create_queue() {
 }
 
 // Function to check if the queue is empty
-int is_empty(Queue* queue) {
+static int is_empty(Queue* queue) {
     return queue->front == NULL;
 }
 
 // Function to add data to the end of the queue
-void enqueue(Queue* queue, Data data, DataType type) {
+static void enqueue(Queue* queue, Data data, DataType type) {
     Node* node = create_node(data, type);
     if (is_empty(queue)) {
         queue->front = node;
@@ -167,7 +167,7 @@ void enqueue(Queue* queue, Data data, DataType type) {
 }
 
 // Function to remove data from the front of the queue
-Data dequeue(Queue* queue) {
+static Data dequeue(Queue* queue) {
     if (is_empty(queue)) {
         Data empty_data;
         return empty_data;
@@ -183,7 +183,7 @@ Data dequeue(Queue* queue) {
 }
 
 // Function to return the data at the front of the queue without removing it
-Data peek(Queue* queue) {
+static Data peek(Queue* queue) {
     if (is_empty(queue)) {
         Data empty_data;
         return empty_data;

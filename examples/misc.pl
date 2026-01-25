@@ -117,3 +117,5 @@ printArgs()->sdfs();
 $somehash{"value" . $value} .= "";
 
 $SomePackage::SubPackage{value};
+
+require SomePackage::ThisPackage if $params->{CHECKTHIS};

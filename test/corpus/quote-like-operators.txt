@@ -47,7 +47,10 @@ my $string = q{im a non interpolated string};
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (scalar_variable)) (string_q_quoted)) 
+  (binary_expression (variable_declaration (scope) (scalar_variable))
+    (string_q_quoted
+          (start_delimiter)
+          (end_delimiter))) 
 )
 
 =================================================
@@ -102,7 +105,7 @@ $string =~ /a b c/msixpodualng;
 
 (source_file
   (binary_expression
-    (scalar_variable) (pattern_matcher (regex_pattern) (regex_option))
+    (scalar_variable) (pattern_matcher (regex_pattern_content) (regex_option))
   ) 
 )
 
@@ -116,7 +119,7 @@ $string =~ m/Simple/is;
 
 (source_file
   (binary_expression
-    (scalar_variable) (patter_matcher_m (start_delimiter) (end_delimiter) (regex_option))
+    (scalar_variable) (pattern_matcher_m (start_delimiter) (end_delimiter) (regex_option))
   ) 
 )
 
@@ -130,7 +133,7 @@ $string =~ m/abc/g;
 
 (source_file
   (binary_expression
-    (scalar_variable) (patter_matcher_m (start_delimiter) (end_delimiter) (regex_option))
+    (scalar_variable) (pattern_matcher_m (start_delimiter) (end_delimiter) (regex_option))
   ) 
 )
 
@@ -146,12 +149,20 @@ if ($x =~ m/u$/) {
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (scalar_variable)) (string_single_quoted)) 
-  (if_statement
-    (parenthesized_expression (binary_expression (scalar_variable) (patter_matcher_m (start_delimiter) (end_delimiter))))
-      (block)
-  )
-) 
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (scalar_variable))
+        (string_single_quoted))
+      (if_statement
+        (array
+          (binary_expression
+            (scalar_variable)
+            (pattern_matcher_m
+              (start_delimiter)
+              (end_delimiter))))
+        (block)))
+
 
 =================================================
 qr regex operator

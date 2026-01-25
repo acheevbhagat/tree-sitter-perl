@@ -32,10 +32,14 @@ my ($self, $args) = @_;
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope)
-    (multi_var_declaration
-      (scalar_variable) (scalar_variable))) (array_variable)) 
-)
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (array
+            (scalar_variable)
+            (normal_comma)
+            (scalar_variable)))
+        (array_variable)))
 
 =================================================
 array declaration
@@ -58,7 +62,7 @@ my @array = ('meow', 'woof', 'burp');
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (array_variable)) (array (string_single_quoted) (string_single_quoted) (string_single_quoted))) 
+  (binary_expression (variable_declaration (scope) (array_variable)) (array (string_single_quoted) (normal_comma) (string_single_quoted) (normal_comma) (string_single_quoted))) 
 )
 
 =================================================
@@ -74,18 +78,24 @@ my $hash = {
 ---
 
 (source_file
-  (binary_expression (variable_declaration (scope) (scalar_variable))
-    (hash_ref
-      (key_value_pair
-        (string_single_quoted) (hash_arrow_operator) (string_single_quoted)
-      )
-      (key_value_pair
-        (string_double_quoted) (hash_arrow_operator) (string_single_quoted)
-      )
-      (key_value_pair
-        (bareword) (hash_arrow_operator) (string_single_quoted)))
-      )
-    )
+      (binary_expression
+        (variable_declaration
+          (scope)
+          (scalar_variable))
+        (hash_ref
+          (string_single_quoted)
+          (fat_comma)
+          (string_single_quoted)
+          (normal_comma)
+          (string_double_quoted)
+          (fat_comma)
+          (string_single_quoted)
+          (normal_comma)
+          (call_expression_with_bareword
+            (identifier))
+          (fat_comma)
+          (string_single_quoted)
+          (normal_comma))))
 
 =================================================
 use statement
@@ -144,8 +154,9 @@ $#array;
 ---
 
 (source_file
-  (scalar_variable) 
-)
+  (length_expression
+        (identifier))) 
+
 
 =================================================
 single quoted string with # in it
@@ -194,7 +205,7 @@ my $line = <$fh>;
 ---
 
 (source_file
-  (while_statement (parenthesized_expression (standard_input))
+  (while_statement (array (standard_input))
     (block)
   )
   (binary_expression (variable_declaration (scope) (scalar_variable)) (standard_input)) 

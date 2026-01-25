@@ -2731,7 +2731,7 @@
     "fields": {
       "args": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "array",
@@ -2929,6 +2929,7 @@
   {
     "type": "comments",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -6385,6 +6386,20 @@
     "type": "require_statement",
     "named": true,
     "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "arguments",
+            "named": true
+          },
+          {
+            "type": "parenthesized_argument",
+            "named": true
+          }
+        ]
+      },
       "package_name": {
         "multiple": false,
         "required": true,
