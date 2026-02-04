@@ -21,8 +21,10 @@ include = [
 path = "bindings/rust/lib.rs"
 
 [dependencies]
+tree-sitter-language = "0.1"
+
+[dev-dependencies]
 tree-sitter = "0.26.3"
-tree-sitter-language = "0.1.6"
 
 [build-dependencies]
 cc = "1.2.51"
